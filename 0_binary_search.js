@@ -1,7 +1,10 @@
-var array = [],  // initializations
+// ********************************************
+// initializations
+var array = [],
     rando = 0,
     counter = 0;
-
+// ********************************************
+// helper functions
 function pickANumber(limit) {
   rando = Math.floor(Math.random() * limit) + 1;
 }
@@ -11,6 +14,8 @@ function populateArray(start, limit) {
   }
   pickANumber(limit);
 }
+// ********************************************
+// algorithm
 function binarySearch(array, target) {
   var n = array.length,        // inputs
       min = 0,                 // init to first index
@@ -29,6 +34,8 @@ function binarySearch(array, target) {
 
     return binarySearch(array, target);
 }
+
+
 populateArray(1, 100);
 console.log( binarySearch(array, rando) );
 
