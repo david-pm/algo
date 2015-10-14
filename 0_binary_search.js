@@ -15,7 +15,7 @@ function populateArray(start, limit) {
   pickANumber(limit);
 }
 // ********************************************
-// algorithm
+// algorithm - lg n
 function binarySearch(array, target) {
   var n = array.length,        // inputs
       min = 0,                 // init to first index
@@ -43,12 +43,25 @@ console.log( binarySearch(array, rando) );
 
 
 
+// Every time the array doubles in length, we need at most one more guess.
+// Suppose we need at most -m- guesses for an array of length -n-.
+// Then, for an array of length -2n-, the first guess cuts the reasonable portion
+// of the array down to size -n-, and at most -m- guesses finish up, giving us a
+// total of at most -m- + 1 guesses for an array of -2n-.
+// So, in general the worst case, can be expressed as:
+//  "the number of times we can repeatedly halve, starting at -n-, until we get
+//  the value 1, plus one."
+// Fortunately, there's a mathematical function that means the same thing:
+// the base-2 logarithm of -n-. 
 
 
+
+// ********************************************
+// other approaches
 
 // var doSearch = function(array, targetValue) {
-// 	 var min = 0;
-// 	 var max = array.length - 1;
+// 	var min = 0;
+// 	var max = array.length - 1;
 //   var guess;
 //   while(array[max] >= array[min]){
 //       guess = Math.floor( (max + min) / 2);
